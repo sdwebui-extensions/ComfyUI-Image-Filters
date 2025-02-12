@@ -3,7 +3,6 @@ import copy
 import torch
 import numpy as np
 import cv2
-from pymatting import estimate_alpha_cf, estimate_foreground_ml, fix_trimap
 from tqdm import trange
 
 try:
@@ -235,6 +234,7 @@ class AlphaMatte:
     CATEGORY = "image/filters"
 
     def alpha_matte(self, images, alpha_trimap, preblur, blackpoint, whitepoint, max_iterations, estimate_fg):
+        from pymatting import estimate_alpha_cf, estimate_foreground_ml, fix_trimap
         
         d = preblur * 2 + 1
         
